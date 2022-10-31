@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id "io.spring.dependency-management" version "1.1.0"
+    id "org.springframework.boot" version "2.7.5" // all dependencies are automatically loaded with version 2.7.5
+}
+
+group 'org.kartamonov'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+/**
+ * Spring
+ */
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web' // basic Spring dependencies
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.7.5' // java persistence api - work with databases
+
+}
+
+/**
+ * Other
+ */
+dependencies {
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.19'
+}
+
+
+/**
+ * Lombok - less templating code
+ */
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+/**
+ * Tests
+ */
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+}
+
+test {
+    useJUnitPlatform()
+}
