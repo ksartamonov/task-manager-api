@@ -49,7 +49,7 @@ public class TaskStateController {
     }
 
     @PostMapping(CREATE_TASK_STATE)
-    public TaskStateDto createTaskSate(
+    public TaskStateDto createTaskState(
             @PathVariable(name = "project_id") Long projectId,
             @RequestParam(name = "task_state_name") String taskStateName) {
 
@@ -67,7 +67,7 @@ public class TaskStateController {
                 throw new BadRequestException(String.format("Task state \"%s\" already exists.", taskStateName));
             }
 
-            if (!taskState.getRightTaskState().isPresent()) {
+            if (taskState.getRightTaskState().isEmpty()) {
                 optionalAnotherTaskState = Optional.of(taskState);
                 break;
             }
