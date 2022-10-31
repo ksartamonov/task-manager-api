@@ -5,7 +5,7 @@ Implemented a task manager that allows you to work on projects. The intended str
 ![image](pictures/projectStructure.png)
 
 Entities are used to work on the project are: __ProjectEntity__, __TaskStateEntity__, __TaskEntity__, they are shown in the diagram:
-![image](pictures/UML.png)
+![image](pictures/diagramUML.png)
 
 The application uses __PostgreSQL__ as a database and frameworks: __Hibernate__ and __Spring__.
 
